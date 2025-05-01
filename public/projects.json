@@ -1,0 +1,82 @@
+[
+    {
+      "name": "FineMed",
+      "image": [
+        "https://i.postimg.cc/VvjfP1Pw/Screenshot-2025-05-01-at-1-41-35-PM.png",
+        "https://i.postimg.cc/jjPt7tC7/Screenshot-2025-05-01-at-1-42-57-PM.png"
+      ],
+      "description": "An e-commerce platform for purchasing medicines with secure authentication and prescription verification.",
+      "keyFeatures": [
+        "User authentication",
+        "Medicine browse and search",
+        "Shopping cart and checkout",
+        "Prescription review",
+        "User dashboard",
+        "Admin dashboard for management",
+        "Secure payment integration",
+        "Responsive design"
+      ],
+      "projectDoneMonthsAgo": 0,
+      "detailedDescription": "FineMed is a comprehensive e-commerce platform designed to facilitate the purchase of medicines online. It features a robust user authentication system using JWT and bcrypt, ensuring secure access for customers and admins. Users can browse and search for medicines by name, category, or symptoms, with detailed product pages providing essential information like price, stock availability, and prescription requirements. The platform includes a shopping cart and checkout system with prescription upload functionality for restricted medicines. Admins have access to a dashboard to manage medicines, orders, and prescription verifications. The application integrates secure payment gateways (Stripe/ShurjoPay) and is fully responsive for seamless use across devices.",
+      "techStack": ["Next.js", "TypeScript", "React", "Tailwind CSS", "Node.js", "Express", "MongoDB","Mongoose", "JWT", "bcrypt"],
+      "frontendRepo": "https://github.com/aamamun24/MediMart-Client",
+      "backendRepo": "https://github.com/Hr-Sajib/Fine-Med-server",
+      "liveLink": "https://fine-med-client.vercel.app/"
+    },
+    {
+      "name": "Bicycle Store",
+      "image": [
+        "https://i.postimg.cc/YS9SVh2B/Screenshot-2025-05-01-at-1-47-33-PM.png",
+        "https://i.postimg.cc/90NR8ZTS/Screenshot-2025-05-01-at-1-49-36-PM.png",
+        "https://i.postimg.cc/7hTw42dj/Screenshot-2025-05-01-at-1-50-40-PM.png",
+        "https://i.postimg.cc/9QwTk8LB/Screenshot-2025-05-01-at-1-51-25-PM.png",
+        "https://i.postimg.cc/xT4MtD3C/Screenshot-2025-05-01-at-1-51-46-PM.png",
+        "https://i.postimg.cc/0Ngm1Y31/Screenshot-2025-05-01-at-1-52-19-PM.png"
+      ],
+      "description": "A responsive bicycle e-commerce app with role-based authentication and product management.",
+      "keyFeatures": [
+        "Secure user registration and login",
+        "Featured products",
+        "Search and filter bicycle products",
+        "Cart and checkout",
+        "Payment integration",
+        "User dashboard",
+        "Admin dashboard for management",
+        "Responsive design"
+      ],
+      "projectDoneMonthsAgo": 1,
+      "detailedDescription": "Bicycle Store is a feature-rich e-commerce application tailored for bicycle enthusiasts. It offers secure user registration and login with JWT-based authentication and hashed passwords. The platform showcases featured products and allows users to search and filter bicycles by brand, price, or category. Detailed product pages provide specifications and a seamless checkout process with payment integration (SurjoPay/Stripe). The app includes role-based dashboards: customers can view order history and manage profiles, while admins can perform CRUD operations on products and orders. The responsive design ensures a consistent experience across devices, with loading states and user-friendly error handling enhancing usability.",
+      "techStack": ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
+      "frontendRepo": "https://github.com/Hr-Sajib/BiCycle-Store-clientSide",
+      "backendRepo": "https://github.com/Hr-Sajib/Bi-Cycle-Store-Server",
+      "liveLink": "https://bicycle-store-client-one.vercel.app"
+    },
+    {
+      "name": "Aura",
+      "image": [
+        "https://i.postimg.cc/9Xw3BfNS/Screenshot-2025-05-01-at-2-36-26-PM.png",
+        "https://i.postimg.cc/zXT99cNF/Screenshot-2025-05-01-at-2-37-01-PM.png",
+        "https://i.postimg.cc/c1ppkNpJ/Screenshot-2025-05-01-at-2-37-12-PM.png",
+        "https://i.postimg.cc/nrD6VdDZ/Screenshot-2025-05-01-at-2-37-28-PM.png",
+        "https://i.postimg.cc/hjwkBFhp/Screenshot-2025-05-01-at-2-38-13-PM.png",
+        "https://i.postimg.cc/t4yLyNCQ/Screenshot-2025-05-01-at-2-38-33-PM.png"
+      ],
+      "description": "An artwork-based unique and beautiful e-commerce platform for artists to showcase and sell their creations.",
+      "keyFeatures": [
+        "User authentication",
+        "Artwork browsing and search",
+        "Detailed artwork listings",
+        "Cart system",
+        "Checkout Page",
+        "User pannel for own arts management",
+        "Admin panel for content management",
+        "Responsive design"
+      ],
+      "projectDoneMonthsAgo": 10,
+      "detailedDescription": "Aura is an artwork-focused e-commerce platform that empowers artists to showcase and sell their creations to a global audience. The platform features secure user authentication and registration powered by Firebase, enabling both artists and buyers to access personalized features. Users can browse through curated artwork collections, search for specific pieces, and view detailed pages with artist information, descriptions, and pricing. The cart system allows users to add artworks, review total costs, and proceed to a checkout page with a dummy payment gateway for demonstration purposes. An admin panel provides tools to manage artworks, update site content, and handle user requests. Built with a modern tech stack, Aura ensures a responsive and intuitive user experience across devices.",
+      "techStack": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Firebase"],
+      "frontendRepo": "https://github.com/Hr-Sajib/Aura-client",
+      "backendRepo": "https://github.com/Hr-Sajib/Aura-server",
+      "liveLink": "https://aura-art-gallary.web.app/"
+    }
+  ]
