@@ -19,9 +19,9 @@ export default function NavBar() {
       offset: 20,
     });
   }, []);
-
+// data-aos="fade-down"
   return (
-    <nav data-aos="fade-down" className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-30 bg-gray-100">
+    <nav  className="fixed px-6 py-3 top-0 left-0 w-full flex justify-between items-center z-30 bg-gray-100">
       {/* Logo (Left Side) */}
       <div className="flex items-center gap-2">
         <Image

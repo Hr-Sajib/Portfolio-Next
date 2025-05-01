@@ -52,6 +52,34 @@
       "liveLink": "https://bicycle-store-client-one.vercel.app"
     },
     {
+      "name": "Events Hub",
+      "image": [
+        "https://i.postimg.cc/wvbGPFzX/Screenshot-2025-05-01-at-8-07-05-PM.png",
+        "https://i.postimg.cc/63QPYgk6/Screenshot-2025-05-01-at-8-07-19-PM.png",
+        "https://i.postimg.cc/rs0PLWyv/Screenshot-2025-05-01-at-8-07-42-PM.png",
+        "https://i.postimg.cc/GpKNPdSS/Screenshot-2025-05-01-at-8-08-17-PM.png"
+
+      ],
+      "description": "An event management enterprise website with admin, customer, vendor features",
+      "keyFeatures": [
+        "Authentication based on customers, admins, vendors",
+        "Browse event suggestions based on need",
+        "Book events & payments",
+        "Connect and contact vendors",
+        "AI driven features",
+        "Customer, admin, vendor dashboards",
+        "Catchy frontend and mailing",
+        "Responsive design"
+      ],
+      "projectDoneMonthsAgo": 0,
+      "detailedDescription": "An event management enterprise website which caters interactive ways of communication and management of event activities incorporating bookings, vendors, suggestions etc",
+      "techStack": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Firebase"],
+      "frontendRepo": "https://github.com/Hr-Sajib/Event-Hub_clientside",
+      "backendRepo": "https://github.com/Hr-Sajib/Event-Hub_server",
+      "liveLink": "https://event-hub.surge.sh/",
+      "underDevelopment": true
+    },
+    {
       "name": "Aura",
       "image": [
         "https://i.postimg.cc/9Xw3BfNS/Screenshot-2025-05-01-at-2-36-26-PM.png",

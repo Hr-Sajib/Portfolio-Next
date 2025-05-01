@@ -1,9 +1,29 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
-const  ProjectDetails = ({ project, onClose }) => {
+// Define TypeScript interface for project data
+interface Project {
+  name: string;
+  image: string[];
+  description: string;
+  keyFeatures: string[];
+  projectDoneMonthsAgo: number;
+  detailedDescription: string;
+  techStack: string[];
+  frontendRepo: string;
+  backendRepo: string;
+  liveLink: string;
+  underDevelopment: boolean;
+}
+
+interface ProjectDetailsProps {
+  project: Project;
+  onClose: () => void;
+}
+
+const ProjectDetails = ({ project, onClose }: ProjectDetailsProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -19,7 +39,7 @@ const  ProjectDetails = ({ project, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 backdrop-blur-2xl flex items-center justify-center z-50">
       <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
@@ -29,7 +49,7 @@ const  ProjectDetails = ({ project, onClose }) => {
               className="text-gray-600 hover:text-gray-800 text-2xl"
               title="Close"
             >
-              &times;
+              ×
             </button>
           </div>
           <div className="relative mb-6">
@@ -38,7 +58,7 @@ const  ProjectDetails = ({ project, onClose }) => {
               alt={`${project.name} screenshot ${currentImageIndex + 1}`}
               width={800}
               height={500}
-              className="w-full h-64 md:h-96 object-cover rounded-lg"
+              className="w-full h-64 md:h-96 object-contain rounded-lg"
             />
             {project.image.length > 1 && (
               <>
@@ -97,7 +117,9 @@ const  ProjectDetails = ({ project, onClose }) => {
               ))}
             </div>
           </div>
-          <p className='mb-4'>Project Done  <b>{project.projectDoneMonthsAgo} months</b> ago</p>
+          <p className="mb-4">
+            Project Done <b>{project.projectDoneMonthsAgo} months</b> ago
+          </p>
           <div className="flex space-x-4 justify-end">
             <a
               href={project.frontendRepo}
@@ -136,4 +158,4 @@ const  ProjectDetails = ({ project, onClose }) => {
   );
 };
 
-export default  ProjectDetails;
+export default ProjectDetails;

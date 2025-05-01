@@ -2,6 +2,7 @@ import Image from "next/image";
 import NavBar from "./components/Navbar"; // Import the NavBar component
 import EducationSection from "./components/Education";
 import ProjectsSection from "./components/Projects";
+import SkillsSection from "./components/Skills";
 
 export default function HomePage() {
   return (
@@ -19,19 +20,20 @@ export default function HomePage() {
         <div className="flex flex-col lg:flex-row  gap-10">
           {/* personal image */}
           <Image
-            className="lg:w-[15vw] w-[25vw] lg:h-[15vw] h-[25vw] object-cover rounded-full z-20"
+            className="lg:w-[17vw] w-[28vw] lg:h-[17vw] h-[28vw] object-cover rounded-full z-20"
             src="https://i.postimg.cc/zfkkdHcS/20211001-233410.jpg"
-            height={100}
-            width={100}
+            height={300}
+            width={300}
             alt="My profile photo"
           />
 
           {/* hero texts */}
           <div>
-            <h1 className="font-oswald text-5xl md:text-6xl font-bold tracking-tight leading-tight relative z-10">
-              Harun Or Rashid Sajib
+            <h1 className="font-oswald text-5xl md:text-6xl mb-2 font-bold tracking-tight leading-tight relative z-10">
+              Harun Or Rashid <span className="bg-gray-200 px-2">Sajib</span>
             </h1>
             <h2 className="text-xl font-extrabold">Full Stack Web Developer</h2>
+            <h2 className="text-xl text-amber-600 font-extrabold">MERN</h2>
             <p className="font-anybody text-lg md:text-xl font-normal mt-4 relative z-10">
               Hi, I’m Sajib — a progressive and detail-oriented <b>Developer </b>
               specialized in <b>Cutting edge web technologies</b> and I believe in the <b>speed</b> of development.
@@ -62,6 +64,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <SkillsSection/>
       <ProjectsSection/>
       <EducationSection/>
 

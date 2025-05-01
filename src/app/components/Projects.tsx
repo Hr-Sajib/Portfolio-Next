@@ -6,10 +6,25 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import ProjectDetails from './ProjectDetails';
 
 
+// Define TypeScript interface for project data
+interface Project {
+  name: string;
+  image: string[];
+  description: string;
+  keyFeatures: string[];
+  projectDoneMonthsAgo: number;
+  detailedDescription: string;
+  techStack: string[];
+  frontendRepo: string;
+  backendRepo: string;
+  liveLink: string;
+  underDevelopment: boolean;
+
+}
+
 const ProjectsSection = () => {
-  const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +34,7 @@ const ProjectsSection = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch projects');
         }
-        const data = await response.json();
+        const data: Project[] = await response.json();
         setProjects(data);
         setIsLoading(false);
       } catch (error) {
@@ -31,7 +46,7 @@ const ProjectsSection = () => {
     fetchProjects();
   }, []);
 
-  const openModal = (project) => {
+  const openModal = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -40,6 +55,8 @@ const ProjectsSection = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -63,6 +80,7 @@ const ProjectsSection = () => {
                 key={index}
                 className="bg-gray-50 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
               >
+                
                 <Image
                   src={project.image[0]} // Display the first image from the array
                   alt={`${project.name} screenshot`}
@@ -72,7 +90,12 @@ const ProjectsSection = () => {
                   priority={index === 0} // Prioritize first image for faster loading
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>
+                  <div className='flex gap-3 items-center'>
+                    <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>
+                    {(project.underDevelopment) == true && 
+                      <p className='font-bold text-blue-500'>(Ongoing Project)</p>
+                    }
+                  </div>
                   <p className="text-gray-600 mt-2">{project.description}</p>
                   <div className="mt-4">
                     <h4 className="text-lg font-medium text-gray-700">Key Features:</h4>
@@ -118,7 +141,7 @@ const ProjectsSection = () => {
                     </Link>
                     <button
                       onClick={() => openModal(project)}
-                      className="flex items-center text-blue-700 hover:text-blue-500 mt-2 lg:mt-5"
+                      className="flex items-center text-gray-700 hover:text-blue-500 mt-2 lg:mt-4"
                       title="More Details"
                     >
                       More Details
