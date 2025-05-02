@@ -33,11 +33,11 @@ export default function HomePage() {
         <NavBar />
 
         {/* Hero Content */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 relative z-10" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-center gap-10 relative z-20" data-aos="fade-up">
           {/* Personal Image */}
           <Image
-            data-aos="zoom-in"
-            className="w-40 h-40 lg:w-64 lg:h-64 object-cover rounded-full"
+            // data-aos="zoom-in"
+            className="w-40 h-40 lg:w-80 lg:h-80 object-cover rounded-full lg:mt-0 mt-10"
             src="https://i.postimg.cc/zfkkdHcS/20211001-233410.jpg"
             height={300}
             width={300}
@@ -46,21 +46,21 @@ export default function HomePage() {
 
           {/* Hero Texts */}
           <div>
-            <h1 className="font-anybody text-5xl md:text-6xl mb-2 font-bold tracking-tight leading-tight">
+            <h1 className="font-anybody text-5xl lg:text-6xl mb-5 font-bold tracking-tight text-black leading-tight">
               Harun Or Rashid <span className="bg-gray-200 px-2">Sajib</span>
             </h1>
-            <h2 className="text-xl font-extrabold">Full Stack Web Developer</h2>
-            <h2 className="text-xl text-amber-600 font-extrabold">MERN</h2>
-            <p className="font-anybody text-lg md:text-xl font-normal mt-4">
+            <h2 className="lg:text-xl text-lg font-extrabold text-black">Full Stack Web Developer</h2>
+            <h2 className="lg:text-xl text-lg text-amber-600 font-extrabold">MERN</h2>
+            <p className="font-anybody lg:text-lg text-base font-normal mt-4 text-black">
               Hi, I’m Sajib — a progressive and detail-oriented <b>Developer</b> specialized in <b>cutting-edge web technologies</b> and I believe in the <b>speed</b> of development.
             </p>
             <button
               onClick={() => scrollToSection('projects')}
-              className="font-bonheur text-2xl mt-6 bg-gray-200 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-orange-200 transition transition-color duration-500 ease-in-out border-orange-900"
+              className="font-bonheur text-black lg:text-2xl text-xl mt-6 bg-gray-200 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-orange-200 transition transition-color duration-500 ease-in-out border-orange-900"
             >
               View Projects <span>→</span>
             </button>
-            <div className="flex gap-4 mt-6 items-center">
+            <div className="flex gap-4 mt-6 items-center text-black">
               <Link href="https://www.linkedin.com/in/hr-sajib" target="_blank" rel="noopener noreferrer" className="font-anybody font-medium hover:text-amber-600">
                 LinkedIn
               </Link>
@@ -88,7 +88,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute lg:right-6 right-0 bottom-6 flex flex-col items-center gap-10 z-10 animate-bounce">
+        <div className="absolute lg:right-6 -right-3 bottom-6 flex flex-col items-center gap-10 z-10 animate-bounce lg:text-base text-sm">
           <span className="font-anybody rotate-90 text-gray-600">Scroll Down</span>
           <div className="w-px h-12 bg-gray-400"></div>
           <div className="w-2 h-2 border-b-2 border-r-2 border-gray-400 rotate-45"></div>

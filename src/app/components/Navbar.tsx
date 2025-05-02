@@ -57,7 +57,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed px-6 py-2 top-0 left-0 w-full flex justify-between items-center z-30 bg-gray-100 border-b-1 border-white">
+    <nav className="text-black fixed px-6 py-2 top-0 left-0 w-full flex justify-between items-center z-30 bg-gray-100 border-b-1 border-white">
       {/* Logo (Left Side) */}
       <Link href="/">
         <div className="flex items-center gap-2">
@@ -66,7 +66,7 @@ export default function Navbar() {
             height={100}
             alt="logo"
             src="https://i.postimg.cc/TwBMPsJP/image.png"
-            className={`w-16 z-30`} // Fixed condition and null issue
+            className={`lg:w-16 w-12 z-30 relative bottom-.5`} // Fixed condition and null issue
           />
         </div>
       </Link>
@@ -117,7 +117,7 @@ export default function Navbar() {
         </Link>
         <Link
           href="/projects"
-          className={`font-anybody uppercase ${pathname == '/projects' ? "text-amber-600": null}`}
+          className={`font-anybody font-medium uppercase ${pathname == '/projects' ? "text-amber-600": null}`}
           onClick={(e) => {
             e.preventDefault();
             handleNavigation('projects');
@@ -127,7 +127,7 @@ export default function Navbar() {
         </Link>
         <Link
           href="/blogs"
-          className={`font-anybody uppercase ${pathname == '/blogs' ? "text-amber-600": null}`}
+          className={`font-anybody font-medium uppercase ${pathname == '/blogs' ? "text-amber-600": null}`}
           onClick={(e) => {
             e.preventDefault();
             handleNavigation('blogs');
@@ -155,7 +155,7 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            className="font-anybody font-medium uppercase"
+            className={`font-anybody uppercase ${pathname == '/' ? "text-amber-600": null}`}
             onClick={(e) => {
               e.preventDefault();
               handleHomeNavigation();
@@ -165,7 +165,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/"
-            className={`font-anybody uppercase ${pathname == '/' ? "text-amber-600": null}`}
+            className="font-anybody font-medium uppercase"
             onClick={(e) => {
               e.preventDefault();
               handleNavigation('skills');
@@ -185,7 +185,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/projects"
-            className={`font-anybody uppercase ${pathname == '/projects' ? "text-amber-600": null}`}
+            className={`font-anybody font-medium uppercase ${pathname == '/projects' ? "text-amber-600": null}`}
             onClick={(e) => {
               e.preventDefault();
               handleNavigation('projects');
@@ -195,7 +195,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/blogs"
-            className={`font-anybody uppercase ${pathname == '/blogs' ? "text-amber-600": null}`}
+            className={`font-anybody font-medium uppercase ${pathname == '/blogs' ? "text-amber-600": null}`}
             onClick={(e) => {
               e.preventDefault();
               handleNavigation('blogs');
