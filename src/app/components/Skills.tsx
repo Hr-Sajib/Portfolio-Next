@@ -1,12 +1,11 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
   FaReact,
   FaNodeJs,
-  FaDatabase,
   FaGitAlt,
   FaGithub,
   FaFire,
@@ -15,6 +14,8 @@ import {
   FaSignal,
 } from 'react-icons/fa';
 import { SiTypescript, SiRedux, SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiInfluxdb, SiVercel, SiStripe } from 'react-icons/si';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const skills = [
   {
@@ -150,6 +151,18 @@ const skills = [
 ];
 
 const SkillsSection = () => {
+
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      once: true,
+      offset: 20,
+    });
+  }, []);
+
+
   return (
     <section id="skills" className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,6 +176,7 @@ const SkillsSection = () => {
             <div className="space-y-6">
               {category.items.map((skill, idx) => (
                 <div
+                data-aos="fade-up"
                   key={idx}
                   className="flex flex-col md:flex-row bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300"
                 >

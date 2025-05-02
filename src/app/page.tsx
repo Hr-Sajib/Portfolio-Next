@@ -7,6 +7,8 @@ import ProjectsSection from './components/Projects';
 import SkillsSection from './components/Skills';
 import NavBar from './components/Navbar';
 import Contacts from './components/Contacts';
+import Footer from './components/Footer';
+import BlogSection from './components/Blogs';
 
 export default function HomePage() {
   // Handle smooth scrolling to section
@@ -30,9 +32,10 @@ export default function HomePage() {
         <NavBar />
 
         {/* Hero Content */}
-        <div className="flex flex-col lg:flex-row gap-10 relative z-10" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-center gap-10 relative z-10" data-aos="fade-up">
           {/* Personal Image */}
           <Image
+            data-aos="zoom-in"
             className="w-40 h-40 lg:w-64 lg:h-64 object-cover rounded-full"
             src="https://i.postimg.cc/zfkkdHcS/20211001-233410.jpg"
             height={300}
@@ -52,7 +55,7 @@ export default function HomePage() {
             </p>
             <button
               onClick={() => scrollToSection('projects')}
-              className="font-bonheur text-2xl mt-6 bg-gray-200 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-gray-300 transition duration-300"
+              className="font-bonheur text-2xl mt-6 bg-gray-200 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-orange-200 transition transition-color duration-500 ease-in-out border-orange-900"
             >
               View Projects <span>→</span>
             </button>
@@ -103,6 +106,12 @@ export default function HomePage() {
       
       {/* Contacts Section  */}
       <Contacts/>
+
+      {/* Blogs Section  */}
+      <BlogSection/>
+
+      {/* Footer  */}
+      <Footer/>
 
     </>
   );

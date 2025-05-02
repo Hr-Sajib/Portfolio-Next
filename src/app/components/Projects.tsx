@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import ProjectDetails from './ProjectDetails';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Define TypeScript interface for project data
 interface Project {
@@ -28,6 +29,12 @@ const ProjectsSection = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({
+      duration: 600,
+      once: true,
+      offset: 20,
+    });
+
     const fetchProjects = async () => {
       try {
         const response = await fetch('/projects.json');
@@ -69,6 +76,8 @@ const ProjectsSection = () => {
     );
   }
 
+
+
   return (
     <>
       <section id="projects" className="py-16 bg-white">
@@ -77,6 +86,8 @@ const ProjectsSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
+
+                data-aos="zoom-in"
                 key={index}
                 className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
               >

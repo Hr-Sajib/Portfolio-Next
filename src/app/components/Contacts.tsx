@@ -5,6 +5,8 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { FaPhoneAlt, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import emailjs from '@emailjs/browser';
+import { RiSendPlaneFill } from "react-icons/ri";
+
 const Contacts = () => {
   const [buttonText, setButtonText] = useState('Send Me');
   const form = useRef<HTMLFormElement>(null);
@@ -45,7 +47,7 @@ const Contacts = () => {
         },
         (error) => {
           console.error('EmailJS error:', error.text);
-          setButtonText('Send Us');
+          setButtonText('Send Me');
         //   setLoading(false);
         }
       );
@@ -101,13 +103,16 @@ const Contacts = () => {
                 <input required type="email" name="email" placeholder="Your Email" className="rounded-md pl-5 h-16 w-full bg-white" />
               </div>
               <textarea required name="message" placeholder="Write your message here ..." className="bg-white h-36 w-full rounded-md p-5" />
-              <div className=" mt-5 p-1">
+              <div className=" mt-5 p-1 flex">
+
                   <input
                     // data-aos="fade-right"
                     type="submit"
                     value={buttonText}
-                    className="hover:bg-orange-200 rounded-md h-12 w-30 hover:text-orange-900 font-bold p-3 text-xl bg-gray-100 text-black transition-color duration-500 ease-in-out border-0 border-orange-900 hover:border"
+                    className="hover:bg-orange-200 rounded-md h-12 w-34 pr-9 hover:text-orange-900 p-3 text-xl bg-gray-100 text-black transition-color duration-500 ease-in-out border-0 border-orange-900 hover:border"
                   />
+                  <RiSendPlaneFill className='text-black text-2xl relative top-3.5 -left-9'/>
+
               </div>
             </form>
           </div>

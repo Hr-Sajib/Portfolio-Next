@@ -69,16 +69,6 @@ export default function NavBar() {
           Home
         </Link>
         <Link
-          href="#about"
-          className="font-anybody font-medium uppercase"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('about');
-          }}
-        >
-          About
-        </Link>
-        <Link
           href="#projects"
           className="font-anybody font-medium uppercase"
           onClick={(e) => {
@@ -97,6 +87,16 @@ export default function NavBar() {
           }}
         >
           Skills
+        </Link>
+        <Link
+            href="#blog"
+            className="font-anybody font-medium uppercase"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('blog');
+            }}
+          >
+            Blog
         </Link>
         <Link
           href="#contact"
@@ -127,16 +127,6 @@ export default function NavBar() {
             Home
           </Link>
           <Link
-            href="#about"
-            className="font-anybody font-medium uppercase"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-            }}
-          >
-            About
-          </Link>
-          <Link
             href="#projects"
             className="font-anybody font-medium uppercase"
             onClick={(e) => {
@@ -156,6 +146,16 @@ export default function NavBar() {
           >
             Skills
           </Link>
+          <Link
+            href="#blog"
+            className="font-anybody font-medium uppercase"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('blog');
+            }}
+          >
+            Blog
+        </Link>
           <Link
             href="#contact"
             className="font-anybody font-medium uppercase"

@@ -1,21 +1,34 @@
+'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const EducationSection = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 20,
+      });
+    }, []);
+  
+    
   return (
     <section id="education" className="py-16 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-aos='fade-down' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Education</h2>
         <div className="bg-white shadow-lg rounded-lg p-8">
           <div className='flex items-center gap-5 mb-5'>
-            <Image
+            <Image        data-aos='zoom-in'
                           src='https://i.postimg.cc/0yyxLXR3/cse.png'
                           alt='cse icon'
                           width={80}
                           height={50}
                           className=""
                         />
-            <div>
+            <div data-aos='fade-right'>
               <h3 className="text-2xl mt-2 font-semibold text-gray-800">Bachelor of Science in Computer Science and Engineering</h3>
               <a href='https://daffodilvarsity.edu.bd' className='text-xl mt-1 mb-5'>at <span className='text-blue-700'>Daffodil International University</span></a>
             </div>
