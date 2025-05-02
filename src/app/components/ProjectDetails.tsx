@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // Define TypeScript interface for project data
 interface Project {
   name: string;
@@ -38,9 +39,17 @@ const ProjectDetails = ({ project, onClose }: ProjectDetailsProps) => {
     );
   };
 
+    useEffect(() => {
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 20,
+      });
+    }, []);
+
   return (
     <div className="fixed inset-0 backdrop-blur-2xl flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div data-aos="zoom-in" className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold text-gray-800">{project.name}</h2>

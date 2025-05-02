@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex flex-col justify-center items-start px-8 py-16 bg-gray-50 relative overflow-hidden">
+      <section id="home" className="min-h-screen flex flex-col justify-center items-start lg:px-30 px-5 py-16 bg-gray-50 relative overflow-hidden">
         {/* Background Circle */}
         <div className="absolute inset-0 flex justify-center items-center">
           <div className="w-[600px] h-[600px] bg-white rounded-full opacity-50"></div>

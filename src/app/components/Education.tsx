@@ -21,20 +21,21 @@ const EducationSection = () => {
         <h2 className="text-3xl font-bold text-gray-900 mb-15 text-center">Education</h2>
         <div className="bg-white shadow-lg rounded-lg p-8">
           <div className='flex items-center gap-5 mb-5'>
-            <Image        data-aos='zoom-in'
+            <Image        
+            // data-aos='zoom-in'
                           src='https://i.postimg.cc/0yyxLXR3/cse.png'
                           alt='cse icon'
                           width={80}
                           height={50}
-                          className=""
+                          className="lg:h-20 lg:w-20 h-15 w-15"
                         />
             <div data-aos='fade-right'>
-              <h3 className="text-2xl mt-2 font-semibold text-gray-800">Bachelor of Science in Computer Science and Engineering</h3>
-              <a href='https://daffodilvarsity.edu.bd' className='text-xl mt-1 mb-5'>at <span className='text-blue-700'>Daffodil International University</span></a>
+              <h3 className="text-xl lg:text-2xl mt-2 font-semibold text-gray-800">Bachelor of Science in Computer Science and Engineering</h3>
+              <a href='https://daffodilvarsity.edu.bd' className='text-base lg:text-xl mt-1 mb-5'>at <span className='text-blue-700'>Daffodil International University</span></a>
             </div>
           </div>
           
-          <div className='flex items-center gap-1'>
+          <div className='flex items-center gap-1 lg:text-base text-sm'>
             <div>
               <p className='bg-gray-200 px-2 py-1 mb-1'>Current Level</p>
               <p className='bg-gray-200 px-2 py-1'>Graduation Year</p>

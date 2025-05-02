@@ -133,7 +133,7 @@ export default function Navbar() {
             handleNavigation('blogs');
           }}
         >
-          Blog
+          Blogs
         </Link>
         <Link
           href="/"

@@ -119,45 +119,49 @@ const ProjectsSection = () => {
                       ))}
                     </ul>
                   </div>
-                  <div className="mt-6 flex flex-wrap space-x-4">
-                    <Link
-                      href={project.frontendRepo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-blue-500"
-                      title="Frontend Repository"
-                    >
-                      <FaGithub className="text-xl mr-2" />
-                      Frontend
+                  <div className="mt-6">
+                    <div className='flex gap-10 text-amber-800 '>
+                      <Link
+                        href={project.frontendRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center hover:text-amber-600"
+                        title="Frontend Repository"
+                      >
+                        <FaGithub className="text-xl mr-2" />
+                        Frontend
+                      </Link>
+                      <Link
+                        href={project.backendRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center hover:text-amber-600"
+                        title="Backend Repository"
+                      >
+                        <FaGithub className="text-xl mr-2" />
+                        Backend
+                      </Link>
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center hover:text-amber-600"
+                        title="Live Demo"
+                      >
+                        <FaExternalLinkAlt className="text-xl mr-2" />
+                        Live
                     </Link>
-                    <Link
-                      href={project.backendRepo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-blue-500"
-                      title="Backend Repository"
-                    >
-                      <FaGithub className="text-xl mr-2" />
-                      Backend
-                    </Link>
-                    <Link
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-blue-500"
-                      title="Live Demo"
-                    >
-                      <FaExternalLinkAlt className="text-xl mr-2" />
-                      Live
-                    </Link>
+                    </div>
+
 
                     <button
-                      onClick={() => openModal(project)}
-                      className="flex items-center text-gray-700 hover:text-blue-500 mt-0 lg:mt-4 "
-                      title="More Details"
-                    >
-                      More Details
+                        onClick={() => openModal(project)}
+                        className="flex items-center text-blue-700 hover:text-blue-500 mt-5 "
+                        title="More Details"
+                      >
+                        More Details
                     </button>
+
                   </div>
                 </div>
               </div>
@@ -172,7 +176,7 @@ const ProjectsSection = () => {
      <div className='flex justify-center mb-15'>
         <Link
             href="/projects"
-            className='font-anybody text-lg text-blue-600 bg-gray-100 p-2 rounded-xl'
+            className='font-anybody text-lg text-blue-600 bg-gray-100 p-2 rounded-md'
           >
             See More Projects
         </Link>
