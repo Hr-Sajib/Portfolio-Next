@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { FaLocationDot, FaPhone } from 'react-icons/fa6';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function Footer() {
   // Handle smooth scrolling to section
@@ -14,8 +17,16 @@ export default function Footer() {
     }
   };
 
+    useEffect(() => {
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 20,
+      });
+    }, []);
+
   return (
-    <footer className="bg-gray-900 text-gray-100 py-12 mt-[70vh] lg:mt-36">
+    <footer data-aos="fade-down" className="bg-gray-900 text-gray-100 py-12 lg:mt-36 mt-10">
       <div className="max-w-[80vw] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */}

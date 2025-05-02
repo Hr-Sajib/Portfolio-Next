@@ -18,7 +18,7 @@ const EducationSection = () => {
   return (
     <section id="education" className="py-16 bg-gray-100">
       <div data-aos='fade-down' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Education</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-15 text-center">Education</h2>
         <div className="bg-white shadow-lg rounded-lg p-8">
           <div className='flex items-center gap-5 mb-5'>
             <Image        data-aos='zoom-in'

@@ -1,11 +1,11 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import ProjectDetails from './ProjectDetails';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ProjectDetails from '@/app/components/ProjectDetails';
 
 // Define TypeScript interface for project data
 interface Project {
@@ -20,7 +20,6 @@ interface Project {
   backendRepo: string;
   liveLink: string;
   underDevelopment: boolean;
-
 }
 
 const ProjectsSection = () => {
@@ -29,6 +28,7 @@ const ProjectsSection = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo({ top: 0 });
     AOS.init({
       duration: 600,
       once: true,
@@ -67,45 +67,57 @@ const ProjectsSection = () => {
 
   if (isLoading) {
     return (
-      <section id="projects" className="py-16 bg-white">
+      <section id="projects" className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Projects</h2>
-          <p className="text-center text-gray-600">Loading projects...</p>
+          <h2 data-aos="zoom-in" className="text-3xl font-bold text-gray-900 mb-12 text-center">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array(3).fill(null).map((_, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden animate-pulse"
+                style={{ height: '400px' }}
+              >
+                <div className="w-full h-48 bg-gray-200" />
+                <div className="p-6">
+                  <div className="h-6 bg-gray-200 mb-2" />
+                  <div className="h-4 bg-gray-200 mb-4" />
+                  <div className="h-4 bg-gray-200 mb-4" />
+                  <div className="h-6 bg-gray-200" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     );
   }
 
-
-
   return (
-    <>
-      <section id="projects" className="py-16 bg-white">
+    <div>
+      <section id="projects" className="py-16 pt-28 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Projects</h2>
+          <h2 className="text-3xl font-bold text-gray-900 lg:mb-10 mb-10 text-center">My Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.slice(0,3).map((project, index) => (
+            {projects.map((project, index) => (
               <div
-
                 data-aos="zoom-in"
                 key={index}
                 className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
               >
-                
                 <Image
-                  src={project.image[0]} // Display the first image from the array
+                  src={project.image[0]}
                   alt={`${project.name} screenshot`}
                   width={600}
                   height={400}
                   className="w-full h-48 object-cover"
-                  priority={index === 0} // Prioritize first image for faster loading
+                  loading="lazy" // Optimize to reduce layout shift
                 />
                 <div className="p-6">
-                  <div className='flex gap-3 items-center'>
+                  <div className="flex gap-3 items-center">
                     <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>
-                    {(project.underDevelopment) == true && 
-                      <p className='font-bold text-blue-500'>(Ongoing Project)</p>
-                    }
+                    {project.underDevelopment && (
+                      <p className="font-bold text-blue-500">(Ongoing Project)</p>
+                    )}
                   </div>
                   <p className="text-gray-600 mt-2">{project.description}</p>
                   <div className="mt-4">
@@ -150,10 +162,9 @@ const ProjectsSection = () => {
                       <FaExternalLinkAlt className="text-xl mr-2" />
                       Live
                     </Link>
-
                     <button
                       onClick={() => openModal(project)}
-                      className="flex items-center text-gray-700 hover:text-blue-500 mt-0 lg:mt-4 "
+                      className="flex items-center text-gray-700 hover:text-blue-500 mt-0 lg:mt-4"
                       title="More Details"
                     >
                       More Details
@@ -168,17 +179,7 @@ const ProjectsSection = () => {
       {isModalOpen && selectedProject && (
         <ProjectDetails project={selectedProject} onClose={closeModal} />
       )}
-
-     <div className='flex justify-center mb-15'>
-        <Link
-            href="/projects"
-            className='font-anybody text-lg text-blue-600 bg-gray-100 p-2 rounded-xl'
-          >
-            See More Projects
-        </Link>
-     </div>
-
-    </>
+    </div>
   );
 };
 

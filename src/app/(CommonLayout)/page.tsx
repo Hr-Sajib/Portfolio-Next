@@ -1,14 +1,15 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaDownload } from 'react-icons/fa';
-import EducationSection from './components/Education';
-import ProjectsSection from './components/Projects';
-import SkillsSection from './components/Skills';
-import NavBar from './components/Navbar';
-import Contacts from './components/Contacts';
-import Footer from './components/Footer';
-import BlogSection from './components/Blogs';
+import { FaDownload, FaFacebookF, FaLinkedinIn, FaPhoneAlt } from 'react-icons/fa';
+import EducationSection from '../components/Education';
+import ProjectsSection from '../components/Projects';
+import SkillsSection from '../components/Skills';
+import NavBar from '../components/Navbar';
+import Contacts from '../components/Contacts';
+import BlogSection from '../components/Blogs';
+import { IoMdMail } from 'react-icons/io';
+import { FaLocationDot } from 'react-icons/fa6';
 
 export default function HomePage() {
   // Handle smooth scrolling to section
@@ -107,11 +108,44 @@ export default function HomePage() {
       {/* Contacts Section  */}
       <Contacts/>
 
+      <div className="h-full w-full bg-black text-white lg:hidden flex-col flex  py-10">
+          {/* Phone and Address */}
+          <div className="ml-10">
+            <div className="flex gap-5 items-center">
+              <FaLocationDot className="text-3xl" />
+              <div data-aos="fade-right">
+                <p>Dhaka</p>
+                <p>Bangladesh</p>
+              </div>
+            </div>
+            <div className="flex gap-5 items-center mt-10">
+              <FaPhoneAlt className="text-2xl" />
+              <div data-aos="fade-right">
+                <p>+880 1734797889</p>
+                <p>+880 1905889771</p>
+              </div>
+            </div>
+            <div className="flex gap-5 items-center mt-10">
+              <IoMdMail className="text-2xl" />
+              <div>
+                <p data-aos="fade-right">hrsajib001@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          {/* Socials */}
+          <div data-aos="zoom-in" className="flex gap-7 mt-20 ml-10">
+            <Link href="https://www.facebook.com/HR.Sajib001" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF className="text-3xl text-white" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/hr-sajib" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn className="text-4xl text-white" />
+            </Link>
+          </div>
+        </div>
+      
+
       {/* Blogs Section  */}
       <BlogSection/>
-
-      {/* Footer  */}
-      <Footer/>
 
     </>
   );

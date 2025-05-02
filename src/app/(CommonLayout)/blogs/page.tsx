@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -35,6 +34,7 @@ const blogs = [
 
 export default function BlogSection() {
   useEffect(() => {
+    window.scrollTo({ top: 0 });
     AOS.init({
       duration: 600,
       once: true,
@@ -49,12 +49,12 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-16 bg-gray-100 lg:mt-36">
+    <section id="blog" className="py-16 bg-gray-100 mt-12 min-h-[50vh]">
       <div className="max-w-7\). mx-auto px-4 sm:px-6 lg:px-8">
      
-       <div data-aos='zoom-in' className='flex gap-2 items-center mb-12 justify-center'>
+       <div className='flex gap-2 items-center mb-10 justify-center'>
           <Image className='h-10 w-10 -rotate-25' height='100' width='100' alt='blogIcon' src='https://i.postimg.cc/yY6VPz9Z/idea-9160364.png'></Image>
-          <h3  className="text-3xl font-oswald font-bold text-gray-900  text-center" >My Blogs</h3>
+          <h3 className="text-3xl font-oswald font-bold text-gray-900  text-center" >My Blogs</h3>
        </div>
          
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,12 +81,13 @@ export default function BlogSection() {
                   </span>
                 ))}
               </div>
-              <Link
-                href={`/blog/${blog.id}`}
-                className="font-anybody text-amber-600 hover:text-amber-800 font-medium transition-colors duration-300"
-              >
-                Read More →
-              </Link>
+              <div className='flex justify-end'>
+                <button
+                  className="font-anybody text-amber-600 hover:text-amber-800 font-medium transition-colors duration-300"
+                >
+                  Read More →
+                </button>
+              </div>
             </div>
           ))}
         </div>
