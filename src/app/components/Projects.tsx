@@ -78,7 +78,7 @@ const ProjectsSection = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-gray-50 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
+                className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
               >
                 
                 <Image
@@ -139,9 +139,10 @@ const ProjectsSection = () => {
                       <FaExternalLinkAlt className="text-xl mr-2" />
                       Live
                     </Link>
+
                     <button
                       onClick={() => openModal(project)}
-                      className="flex items-center text-gray-700 hover:text-blue-500 mt-2 lg:mt-4"
+                      className="flex items-center text-gray-700 hover:text-blue-500 mt-0 lg:mt-4 "
                       title="More Details"
                     >
                       More Details
