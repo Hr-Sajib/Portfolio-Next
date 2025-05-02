@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Anybody, Bonheur_Royale, Oswald } from "next/font/google";
+import { Geist, Geist_Mono, Anybody, Bonheur_Royale, Oswald, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 
 // Configure Geist Sans
@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 const anybody = Anybody({
   variable: "--font-anybody",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // All weights
-  style: ["normal", "italic"], // Include italic
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -27,7 +27,7 @@ const anybody = Anybody({
 const bonheurRoyale = Bonheur_Royale({
   variable: "--font-bonheur",
   subsets: ["latin"],
-  weight: "400", // Only available weight
+  weight: "400",
   display: "swap",
 });
 
@@ -35,13 +35,21 @@ const bonheurRoyale = Bonheur_Royale({
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"], // Available weights
+  weight: ["200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Configure Josefin Sans
+const josefinSans = Josefin_Sans({
+  variable: "--font-josefin-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Harun Or Rashid ( Sajib )",
-  description: "Portfolio of Julius Guevara, a UI/UX Designer and Front End Developer.",
+  title: "Harun Or Rashid (Sajib)",
+  description: "Portfolio of Harun Or Rashid Sajib, a Full Stack Web Developer specializing in MERN stack.",
 };
 
 export default function RootLayout({
@@ -52,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${anybody.variable} ${bonheurRoyale.variable} ${oswald.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${anybody.variable} ${bonheurRoyale.variable} ${oswald.variable} ${josefinSans.variable} antialiased`}
       >
         {children}
       </body>
