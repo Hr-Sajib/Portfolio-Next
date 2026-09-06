@@ -1,6 +1,54 @@
 [
     {
+      "slug": "farmflow",
+      "name": "FarmFlow",
+      "whatItIs": "A real-time decision-support platform for greenhouse & high-value crop growers — live sensor telemetry, a streaming AI crop advisor, remote actuator control and a moderated grower community.",
+      "image": [
+        "https://farmflow-bucket.s3.ap-south-1.amazonaws.com/system-assets/farmflow-fields-dashboard.png",
+        "https://i.ibb.co.com/LhhFxWFD/github-banner-hardware-farmflow.jpg",
+        "https://arbora-bucket.s3.us-east-2.amazonaws.com/system+assets/IMAGE+2026-09-05+22%3A26%3A38.jpg"
+      ],
+      "description": "A real-time greenhouse control & AI advisory platform fusing live ESP32 sensor data, soil composition and weather forecasts into crop-specific guidance.",
+      "keyFeatures": [
+        "Live telemetry pushed via an authenticated Socket.IO namespace, zero polling",
+        "Remote irrigation & shading control straight from the dashboard",
+        "Streaming AI crop advisor fusing live sensor data, soil composition & 3-day forecast",
+        "Tiered advisory — instant AI answer, escalated to a verified agronomist when it matters",
+        "AI-moderated grower community forum with tri-state review (pending/published/rejected)",
+        "Map-driven field setup — draw a boundary on Leaflet, backend resolves soil & weather",
+        "Field snapshots attached to chats & forum posts",
+        "One-click demo login for farmer, expert & admin roles"
+      ],
+      "projectDoneMonthsAgo": 0,
+      "detailedDescription": "FarmFlow is a real-time decision-support platform for greenhouse and high-value crop growers. ESP32 nodes (temp/humidity, light and soil-moisture sensors, plus servo/stepper/motor actuators) publish over MQTT to HiveMQ Cloud, feeding an Express 5 + Socket.IO API that writes into a native MongoDB time-series collection. Every advisory card fuses three sources concurrently — the field's live sensor reading, ISRIC SoilGrids soil composition and the Open-Meteo forecast — into one prompt for a streaming AI advisor, which escalates to a verified human agronomist when a case needs it. A Next.js 16 client renders the live charts, actuator controls, map-based field setup and an AI-moderated grower forum. The whole stack is self-hosted on a VPS behind Cloudflare and Caddy, with Tailscale gating all administrative and CI/CD access.",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Mongoose", "Socket.IO", "MQTT", "AWS S3", "JWT", "OpenAI SDK", "Docker", "Cloudflare", "Caddy", "Tailscale"],
+      "frontendRepo": "https://github.com/Hr-Sajib/FarmFlow-client",
+      "backendRepo": "https://github.com/Hr-Sajib/FarmFlow-AppServer",
+      "liveLink": "https://farmflow.sajibofficial.me",
+      "motive": [
+        "🌾 Greenhouse growers had no real-time visibility into their own fields' sensor data",
+        "🧭 Wanted crop advice grounded in real sensor, soil & weather data instead of generic tips",
+        "🩺 Aimed to blend a fast AI answer with human expert escalation for the cases that matter"
+      ],
+      "architecture": [
+        "🧩 ESP32 nodes (or the ESP-Simulator) publish sensor + actuator data over MQTT (TLS) to HiveMQ Cloud",
+        "🗄️ Express 5 + Socket.IO API ingests readings into a native MongoDB time-series collection (metaField-indexed, 90-day TTL)",
+        "🌦️ Live sensor readings, ISRIC SoilGrids soil composition and Open-Meteo forecasts are fetched concurrently and fused into one AI advisory prompt",
+        "📡 Next.js 16 client subscribes over an authenticated Socket.IO namespace for live charts and streaming advisor replies",
+        "🔒 Deployed behind Cloudflare → Caddy → Docker containers on a VPS reachable only via Tailscale"
+      ],
+      "problemsSolved": [
+        "🐛 InfluxDB modeled farmerId/fieldId as unindexed fields, forcing full scans → migrated to native MongoDB time-series with indexed metaField tags",
+        "🔌 Frozen ESP32 firmware sends hardware labels, not field IDs → added a short-TTL registry resolving label → field so orphan readings get dropped",
+        "🖼️ OpenRouter refused to fetch attachment images from private/localhost URLs → switched to short-lived signed S3 URLs",
+        "📖 Offset pagination on a newest-first feed shifted under the reader between requests → switched to (createdAt, _id) cursor paging",
+        "🧱 Follower arrays risked hitting MongoDB's 16MB document cap → modeled follows as unique-indexed edge documents instead"
+      ]
+    },
+    {
+      "slug": "finemed",
       "name": "FineMed",
+      "whatItIs": "A secure e-commerce platform for buying medicines online with prescription verification.",
       "image": [
         "https://i.postimg.cc/VvjfP1Pw/Screenshot-2025-05-01-at-1-41-35-PM.png",
         "https://i.postimg.cc/jjPt7tC7/Screenshot-2025-05-01-at-1-42-57-PM.png"
@@ -21,10 +69,29 @@
       "techStack": ["Next.js", "TypeScript", "React", "Tailwind CSS", "Node.js", "Express", "MongoDB","Mongoose", "JWT", "bcrypt"],
       "frontendRepo": "https://github.com/aamamun24/MediMart-Client",
       "backendRepo": "https://github.com/Hr-Sajib/Fine-Med-server",
-      "liveLink": "https://fine-med-client.vercel.app/"
+      "liveLink": "https://fine-med-client.vercel.app/",
+      "walkthroughVideo": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "motive": [
+        "🩺 Pharmacies nearby had no easy way for customers to check medicine stock before visiting",
+        "🔐 Wanted to practice building a platform that safely handles prescription-restricted purchases",
+        "📈 Aimed to learn end-to-end e-commerce flow: cart, checkout and admin order management"
+      ],
+      "architecture": [
+        "🧩 Next.js frontend with server components for fast product listing pages",
+        "🗄️ Express + MongoDB backend exposing a REST API for products, orders & prescriptions",
+        "🔑 JWT-based auth with role separation between customer and admin",
+        "☁️ Prescription files uploaded to cloud storage and linked to orders for admin review"
+      ],
+      "problemsSolved": [
+        "🐛 Race condition on stock count during checkout → fixed with atomic MongoDB updates",
+        "🖼️ Slow image loads on product grid → solved with lazy loading and optimized image sizes",
+        "🔁 Duplicate orders on double-click checkout → added request debouncing + idempotency check"
+      ]
     },
     {
+      "slug": "bicycle-store",
       "name": "Bicycle Store",
+      "whatItIs": "A role-based e-commerce app for browsing and buying bicycles online.",
       "image": [
         "https://i.postimg.cc/YS9SVh2B/Screenshot-2025-05-01-at-1-47-33-PM.png",
         "https://i.postimg.cc/90NR8ZTS/Screenshot-2025-05-01-at-1-49-36-PM.png",
@@ -49,10 +116,29 @@
       "techStack": ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
       "frontendRepo": "https://github.com/Hr-Sajib/BiCycle-Store-clientSide",
       "backendRepo": "https://github.com/Hr-Sajib/Bi-Cycle-Store-Server",
-      "liveLink": "https://bicycle-store-client-one.vercel.app"
+      "liveLink": "https://bicycle-store-client-one.vercel.app",
+      "walkthroughVideo": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "motive": [
+        "🚲 Wanted to build a niche-store experience instead of a generic e-commerce template",
+        "🧑‍🤝‍🧑 Practice role-based access control between customers and admins",
+        "💳 Explore integrating a real regional payment gateway (SurjoPay)"
+      ],
+      "architecture": [
+        "🧩 Next.js frontend consuming a REST API for products, carts and orders",
+        "🗄️ Express + MongoDB backend with Mongoose schemas for products & orders",
+        "🔑 Role-based JWT middleware guarding admin-only routes",
+        "💳 Payment gateway integration handled server-side with webhook confirmation"
+      ],
+      "problemsSolved": [
+        "🐛 Filter + pagination combo returned stale results → fixed query key caching",
+        "🔒 Admin routes were reachable by manipulating client state → enforced server-side role checks",
+        "📱 Layout broke on smaller tablets → reworked grid breakpoints for the product listing"
+      ]
     },
     {
+      "slug": "events-hub",
       "name": "Events Hub",
+      "whatItIs": "An event management enterprise platform connecting customers, vendors and admins.",
       "image": [
         "https://i.postimg.cc/wvbGPFzX/Screenshot-2025-05-01-at-8-07-05-PM.png",
         "https://i.postimg.cc/63QPYgk6/Screenshot-2025-05-01-at-8-07-19-PM.png",
@@ -77,10 +163,29 @@
       "frontendRepo": "https://github.com/Hr-Sajib/Event-Hub_clientside",
       "backendRepo": "https://github.com/Hr-Sajib/Event-Hub_server",
       "liveLink": "https://event-hub.surge.sh/",
-      "underDevelopment": true
+      "underDevelopment": true,
+      "walkthroughVideo": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "motive": [
+        "🎉 Event planning involves too many disconnected calls between customers and vendors",
+        "🤝 Wanted one hub where vendors, customers and admins can coordinate in one place",
+        "🤖 Curious to experiment with AI-driven event suggestions based on user needs"
+      ],
+      "architecture": [
+        "🧩 React frontend with role-specific dashboards for customer, vendor & admin",
+        "🗄️ Express + MongoDB backend modeling events, bookings and vendor profiles",
+        "🔥 Firebase used for authentication and real-time notifications",
+        "🤖 AI suggestion module calling an external model to recommend vendors/events"
+      ],
+      "problemsSolved": [
+        "🐛 Vendor availability conflicts when double-booked → added booking-slot locking",
+        "📧 Emails landing in spam → fixed with proper SPF/DKIM mail configuration",
+        "⚙️ Still under active development — dashboard permissions being refined"
+      ]
     },
     {
+      "slug": "aura",
       "name": "Aura",
+      "whatItIs": "An artwork-focused e-commerce platform where artists showcase and sell their creations.",
       "image": [
         "https://i.postimg.cc/9Xw3BfNS/Screenshot-2025-05-01-at-2-36-26-PM.png",
         "https://i.postimg.cc/zXT99cNF/Screenshot-2025-05-01-at-2-37-01-PM.png",
@@ -105,6 +210,23 @@
       "techStack": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Firebase"],
       "frontendRepo": "https://github.com/Hr-Sajib/Aura-client",
       "backendRepo": "https://github.com/Hr-Sajib/Aura-server",
-      "liveLink": "https://aura-art-gallary.web.app/"
+      "liveLink": "https://aura-art-gallary.web.app/",
+      "walkthroughVideo": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "motive": [
+        "🎨 Independent artists often lack an affordable, dedicated storefront online",
+        "🖼️ Wanted to design a visually distinctive UI instead of a generic product grid",
+        "🧪 Used this project to experiment with Firebase auth + hosting end-to-end"
+      ],
+      "architecture": [
+        "🧩 React frontend with a gallery-style layout for browsing artworks",
+        "🗄️ Express + MongoDB backend storing artwork, artist & order data",
+        "🔥 Firebase handling authentication and static hosting",
+        "💳 Dummy payment gateway simulating checkout for demo purposes"
+      ],
+      "problemsSolved": [
+        "🐛 Large artwork images slowed page load → added responsive image sizing & compression",
+        "🔍 Search felt sluggish with many listings → added debounced search input",
+        "🎨 Generic template look → reworked layout with a custom gallery grid for visual identity"
+      ]
     }
   ]

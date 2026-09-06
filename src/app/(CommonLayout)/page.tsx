@@ -12,14 +12,6 @@ import { IoMdMail } from 'react-icons/io';
 import { FaLocationDot } from 'react-icons/fa6';
 
 export default function HomePage() {
-  // Handle smooth scrolling to section
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <>
       {/* Hero Section */}
@@ -37,8 +29,8 @@ export default function HomePage() {
           {/* Personal Image */}
           <Image
             // data-aos="zoom-in"
-            className="w-40 h-40 lg:w-80 lg:h-80 object-cover rounded-full lg:mt-0 mt-10"
-            src="https://i.postimg.cc/zfkkdHcS/20211001-233410.jpg"
+            className="w-40 h-40 lg:w-80 lg:h-80 object-cover rounded-full bg-gray-200 lg:mt-0 mt-10"
+            src="/hero-photo.png"
             height={300}
             width={300}
             alt="My profile photo"
@@ -50,16 +42,43 @@ export default function HomePage() {
               Harun Or Rashid <span className="bg-gray-200 px-2">Sajib</span>
             </h1>
             <h2 className="lg:text-xl text-lg font-extrabold text-black">Full Stack Web Developer</h2>
-            <h2 className="lg:text-xl text-lg text-amber-600 font-extrabold">MERN</h2>
-            <p className="font-anybody lg:text-lg text-base font-normal mt-4 text-black">
-              Hi, I’m Sajib — a progressive and detail-oriented <b>Developer</b> specialized in <b>cutting-edge web technologies</b> and I believe in the <b>speed</b> of development.
-            </p>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="font-bonheur text-black lg:text-2xl text-xl mt-6 bg-gray-200 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-orange-200 transition transition-color duration-500 ease-in-out border-orange-900"
-            >
-              View Projects <span>→</span>
-            </button>
+            <div className="font-anybody lg:text-lg text-base font-normal mt-4 text-black flex flex-col gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span>Full Stack Engineer @</span>
+                <Link
+                  href="https://rootsbeyond.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <Image
+                    src="/rootsbeyond-logo.png"
+                    alt="Roots Beyond"
+                    width={512}
+                    height={393}
+                    className="h-10 w-auto object-contain"
+                  />
+                </Link>
+                <span>, Texas, USA</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span>ex Backend Developer &amp; Team Leader @</span>
+                <Link
+                  href="http://smtech24.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <Image
+                    src="/smtechnology-logo.png"
+                    alt="SM Technology"
+                    width={800}
+                    height={151}
+                    className="h-6 w-auto object-contain"
+                  />
+                </Link>
+              </div>
+            </div>
             <div className="flex gap-4 mt-6 items-center text-black">
               <Link href="https://www.linkedin.com/in/hr-sajib" target="_blank" rel="noopener noreferrer" className="font-anybody font-medium hover:text-amber-600">
                 LinkedIn
@@ -104,7 +123,7 @@ export default function HomePage() {
 
       {/* Education Section */}
       <EducationSection />
-      
+
       {/* Contacts Section  */}
       <Contacts/>
 
@@ -142,7 +161,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      
+
 
       {/* Blogs Section  */}
       <BlogSection/>

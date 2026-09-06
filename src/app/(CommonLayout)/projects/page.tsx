@@ -2,29 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ProjectDetails from '@/app/components/ProjectDetails';
-
-// Define TypeScript interface for project data
-interface Project {
-  name: string;
-  image: string[];
-  description: string;
-  keyFeatures: string[];
-  projectDoneMonthsAgo: number;
-  detailedDescription: string;
-  techStack: string[];
-  frontendRepo: string;
-  backendRepo: string;
-  liveLink: string;
-  underDevelopment: boolean;
-}
+import { Project } from '@/app/types/types';
 
 const ProjectsSection = () => {
+  const router = useRouter();
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -53,17 +39,9 @@ const ProjectsSection = () => {
     fetchProjects();
   }, []);
 
-  const openModal = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
+  const goToProject = (slug: string) => {
+    router.push(`/projects/${slug}`);
   };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedProject(null);
-  };
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -102,7 +80,13 @@ const ProjectsSection = () => {
               <div
                 data-aos="zoom-in"
                 key={index}
-                className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
+                role="link"
+                tabIndex={0}
+                onClick={() => goToProject(project.slug)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') goToProject(project.slug);
+                }}
+                className="bg-gray-50 border border-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:shadow-xl cursor-pointer"
               >
                 <Image
                   src={project.image[0]}
@@ -136,6 +120,7 @@ const ProjectsSection = () => {
                       href={project.frontendRepo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center text-gray-700 hover:text-blue-500"
                       title="Frontend Repository"
                     >
@@ -146,29 +131,32 @@ const ProjectsSection = () => {
                       href={project.backendRepo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center text-gray-700 hover:text-blue-500"
                       title="Backend Repository"
                     >
                       <FaGithub className="text-xl mr-2" />
                       Backend
                     </Link>
-                    <Link
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 hover:text-blue-500"
-                      title="Live Demo"
-                    >
-                      <FaExternalLinkAlt className="text-xl mr-2" />
-                      Live
-                    </Link>
-                    <button
-                      onClick={() => openModal(project)}
+                    {project.liveLink && (
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center text-gray-700 hover:text-blue-500"
+                        title="Live Demo"
+                      >
+                        <FaExternalLinkAlt className="text-xl mr-2" />
+                        Live
+                      </Link>
+                    )}
+                    <span
                       className="flex items-center text-gray-700 hover:text-blue-500 mt-0 lg:mt-4"
                       title="More Details"
                     >
-                      More Details
-                    </button>
+                      More Details →
+                    </span>
                   </div>
                 </div>
               </div>
@@ -176,9 +164,6 @@ const ProjectsSection = () => {
           </div>
         </div>
       </section>
-      {isModalOpen && selectedProject && (
-        <ProjectDetails project={selectedProject} onClose={closeModal} />
-      )}
     </div>
   );
 };

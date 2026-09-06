@@ -29,6 +29,7 @@ const Contacts = () => {
     const templateParams = {
       from_name: 'Portfolio Contact',
       from_email: userEmail,
+      to_email: 'contact@sajibofficial.me',
       name: userName,
       message: userMessage,
     };
@@ -76,7 +77,7 @@ const Contacts = () => {
             <div className="flex gap-5 items-center mt-10">
               <IoMdMail className="text-2xl" />
               <div>
-                <p data-aos="fade-right">hrsajib001@gmail.com</p>
+                <p data-aos="fade-right">contact@sajibofficial.me</p>
               </div>
             </div>
           </div>
