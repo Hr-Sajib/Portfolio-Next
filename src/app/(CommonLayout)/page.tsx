@@ -89,13 +89,13 @@ export default function HomePage() {
               </Link>
               <span>/</span>
               <div className="flex items-center gap-2">
-                <Link href="https://drive.google.com/file/d/1dpB4-T-xs10OohhVjedbrdDFXktGO0Et/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="font-anybody font-medium hover:text-amber-600">
+                <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="font-anybody font-medium hover:text-amber-600">
                   Resume
                 </Link>
                 <button>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=1dpB4-T-xs10OohhVjedbrdDFXktGO0Et"
-                    download
+                    href="/resume.pdf"
+                    download="Harun-Or-Rashid-Sajib-Resume.pdf"
                     className="font-anybody font-medium hover:text-amber-600 flex items-center"
                   >
                     <FaDownload className="text-lg" />
