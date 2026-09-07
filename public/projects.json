@@ -10,14 +10,14 @@
       ],
       "description": "A real-time greenhouse control & AI advisory platform fusing live ESP32 sensor data, soil composition and weather forecasts into crop-specific guidance.",
       "keyFeatures": [
-        "Live telemetry pushed via an authenticated Socket.IO namespace, zero polling",
-        "Remote irrigation & shading control straight from the dashboard",
-        "Streaming AI crop advisor fusing live sensor data, soil composition & 3-day forecast",
-        "Tiered advisory — instant AI answer, escalated to a verified agronomist when it matters",
-        "AI-moderated grower community forum with tri-state review (pending/published/rejected)",
-        "Map-driven field setup — draw a boundary on Leaflet, backend resolves soil & weather",
-        "Field snapshots attached to chats & forum posts",
-        "One-click demo login for farmer, expert & admin roles"
+        "Live sensor telemetry",
+        "Remote irrigation control",
+        "AI-powered crop advisor",
+        "Human expert escalation",
+        "Moderated grower forum",
+        "Map-based field setup",
+        "Field snapshot sharing",
+        "Role-based dashboards"
       ],
       "projectDoneMonthsAgo": 0,
       "detailedDescription": "FarmFlow is a real-time decision-support platform for greenhouse and high-value crop growers. ESP32 nodes (temp/humidity, light and soil-moisture sensors, plus servo/stepper/motor actuators) publish over MQTT to HiveMQ Cloud, feeding an Express 5 + Socket.IO API that writes into a native MongoDB time-series collection. Every advisory card fuses three sources concurrently — the field's live sensor reading, ISRIC SoilGrids soil composition and the Open-Meteo forecast — into one prompt for a streaming AI advisor, which escalates to a verified human agronomist when a case needs it. A Next.js 16 client renders the live charts, actuator controls, map-based field setup and an AI-moderated grower forum. The whole stack is self-hosted on a VPS behind Cloudflare and Caddy, with Tailscale gating all administrative and CI/CD access.",
